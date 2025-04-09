@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopBazaar - Product Reviews</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-512.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- CSS -->
+    <style>
+        /* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f1f1f1;
+    color: black;
+    text-align: center;
+}
+
+
+.navbar {
+    background-color: transparent;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    margin: 5px;
+}
+
+.navbar a:hover {
+    color: skyblue;
+    border-radius: 20px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: skyblue;
+}
+
+
+.reviews-container {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin-top: 40px;
+    margin-left: 23%;
+  
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-name {
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.rating-stars {
+    font-size: 25px;
+    color: #ffcc00;
+    margin: 20px 0;
+}
+
+.rating-stars i {
+    cursor: pointer;
+}
+
+.review-form {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.review-form textarea {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    resize: none;
+}
+
+.review-form button {
+    background-color: purple;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.review-form button:hover {
+    background-color: rgb(64, 2, 64);
+}
+
+
+.reviews-list {
+    margin-top: 40px;
+    border-top: 2px solid #ddd;
+    padding-top: 20px;
+}
+
+.reviews-list .review {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.reviews-list .review .review-stars {
+    margin-bottom: 10px;
+}
+
+.reviews-list .review .review-stars i {
+    color: #ffcc00;
+}
+
+.reviews-list .review .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reviews-list .review .review-username {
+    font-weight: bold;
+    color: #333;
+}
+
+
+footer {
+    background-color: transparent;
+    color: black;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer .footer-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+footer .footer-links a {
+    color: black;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+footer .footer-links a:hover {
+    color: skyblue;
+}
+
+footer .footer-text {
+    text-align: center;
+    font-size: 14px;
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .reviews-container {
+        padding: 20px;
+    }
+
+    .review-form button {
+        padding: 8px 16px;
+    }
+
+    .review-form textarea {
+        height: 100px;
+    }
+}
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="navbar">
+        <div class="logo">Shop<span style="color: purple;">Bazaar</span></div>
+        <div>
+            <a href="home.html">Home</a>
+            <a href="product.html">Product</a>
+            <a href="cart.html">Cart</a>
+            <a href="login.html">Logout <i style="font-size:15px" class="fa">&#xf08b;</i></a>
+        </div>
+    </div>
+
+    <div class="reviews-container">
+        <div class="product-name" style="color: skyblue;">Shop<span style="color: purple;">Bazaar</span></div>
+
+   
+        <div class="rating-stars">
+            <i class="fa fa-star" data-rating="1"></i>
+            <i class="fa fa-star" data-rating="2"></i>
+            <i class="fa fa-star" data-rating="3"></i>
+            <i class="fa fa-star" data-rating="4"></i>
+            <i class="fa fa-star" data-rating="5"></i>
+        </div>
+
+     
+        <div class="review-form">
+            <textarea id="review-text" placeholder="Write your review here..."></textarea><br>
+            <button id="submit-review">Submit Review</button>
+        </div>
+
+    
+        <div class="reviews-list">
+            
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="aboutus.html">About Us</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="FAQs.html">FAQs</a>
+            <a href="Reviews.html">Reviews</a>
+        </div>
+        <div class="footer-text">
+            <p>&copy; 2025 ShopBazaar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        $(document).ready(function () {
+            let selectedRating = 0;
+
+           
+            $(".rating-stars i").on("click", function () {
+                selectedRating = $(this).data("rating");
+                $(".rating-stars i").each(function (index) {
+                    $(this).toggleClass("fa-star", index < selectedRating);
+                    $(this).toggleClass("fa-star-o", index >= selectedRating);
+                });
+            });
+
+        
+            $("#submit-review").click(function () {
+                let reviewText = $("#review-text").val();
+
+                if (!selectedRating || !reviewText.trim()) {
+                    alert("Please provide a rating and review text.");
+                    return;
+                }
+
+               
+                let newReview = {
+                    userEmail: "ShopBazaar User - Ahmedabad",  
+                    rating: selectedRating,
+                    review: reviewText
+                };
+
+            
+                addReviewToList(newReview);
+
+             
+                $("#review-text").val('');
+                selectedRating = 0;
+                $(".rating-stars i").removeClass("fa-star").addClass("fa-star-o");
+            });
+
+        
+            const reviews = [
+                {
+                    userEmail: "Rajan Vagadiya - Rajkot",
+                    rating: 5,
+                    review: "Recently i have purchase smartwatch from the Shopbazaar and it was amazing!"
+                },
+                {
+                    userEmail: "Harsh Joshi - Una",
+                    rating: 4,
+                    review: "I bought SG Cricket kit it was amazing, but the packaging could be better."
+                },
+                {
+                    userEmail: "Ravi Piprotar - Vadodara",
+                    rating: 5,
+                    review: "The Product from this website is just a amazing..."
+                },
+                {
+                    userEmail: "Jaydip Vaghela - Surendranagar",
+                    rating: 3,
+                    review: "Not very satisfied, i ordered sunglasses and the sunglass broke after a week of use."
+                }
+            ];
+
+      
+            function loadReviews() {
+                $(".reviews-list").empty();  
+
+     
+                reviews.forEach(review => {
+                    let reviewStars = '';
+                    for (let i = 0; i < 5; i++) {
+                        reviewStars += (i < review.rating) ? '<i class="fa fa-star"></i>' : '<i class="fa fa-star-o"></i>';
+                    }
+
+              
+                    $(".reviews-list").append(`
+                        <div class="review">
+                            <div class="review-header">
+                                <span class="review-username">${review.userEmail}</span>
+                                <div class="review-stars">${reviewStars}</div>
+                            </div>
+                            <p>${review.review}</p>
+                        </div>
+                    `);
+                });
+            }
+
+           
+            loadReviews();
+
+
+            function addReviewToList(newReview) {
+          
+                reviews.push(newReview);
+
+             
+                loadReviews();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

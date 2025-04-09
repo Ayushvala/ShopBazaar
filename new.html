@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopBazaar - Cashback & Rewards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-512.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(https://www.sleeplessmedia.com/wp-content/uploads/2010/09/extensive-ecommerce-banner.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            background-attachment: fixed;
+        }
+
+        .navbar {
+            background-color: transparent;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            margin: 5px;
+        }
+
+        .navbar a:hover {
+            color: skyblue;
+            border-radius: 20px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: skyblue;
+        }
+
+        .cashback-rewards-container {
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .cashback-card {
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            color: black;
+        }
+
+        .cashback-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .cashback-card h3 {
+            font-size: 20px;
+            margin: 15px 0;
+        }
+
+        .cashback-info {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .reward-point {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+        }
+
+        .reward-description {
+            font-size: 14px;
+            color: grey;
+            margin-top: 10px;
+        }
+
+        .apply-btn {
+            background: purple;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .apply-btn:hover {
+            background: rgb(64, 2, 64);
+        }
+
+        footer {
+            background-color: transparent;
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        footer .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        footer .footer-links a:hover {
+            color: skyblue;
+        }
+
+        footer .footer-text {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .ayush {
+            display: flex;
+            flex-direction: row;
+            margin-right: 380px;
+        }
+    </style>
+
+    <!-- JS -->
+    <script>
+        $(document).ready(function () {
+            let userEmail = sessionStorage.getItem("userEmail");
+            let userId = sessionStorage.getItem("userId");
+
+            console.log("Retrieved userId:", userId);
+
+            if (!userEmail || !userId) {
+                window.location.href = "login.html";
+            } else {
+                $("#user-email").text(userEmail);
+                loadCashbackAndRewards();
+            }
+
+            $(".logout-btn").click(function () {
+                sessionStorage.clear();
+                window.location.href = "login.html";
+            });
+
+            function loadCashbackAndRewards() {
+                $.ajax({
+                    url: "https://localhost:7183/api/Users/cashbackAndRewards", 
+                    type: "GET",
+                    success: function (data) {
+                        $(".cashback-rewards-container").empty();
+                        console.log(data);
+
+                        if (data.length === 0) {
+                            $(".cashback-rewards-container").html("<p>No cashback or rewards available.</p>");
+                            return;
+                        }
+
+                        displayCashbackAndRewards(data);
+                    },
+                    error: function () {
+                        alert("Failed to load cashback and rewards.");
+                    }
+                });
+            }
+
+            function displayCashbackAndRewards(data) {
+                data.forEach(item => {
+                    $(".cashback-rewards-container").append(`
+                        <div class="cashback-card">
+                            <h3>${item.title}</h3>
+                            <p class="cashback-info">${item.description}</p>
+                            <p class="reward-point">₹${item.rewardAmount}</p>
+                            <p class="reward-description">${item.rewardDescription}</p>
+                            <button class="apply-btn" data-id="${item.id}" data-reward="${item.rewardAmount}">Apply Now</button>
+                        </div>
+                    `);
+                });
+
+          
+                $(".apply-btn").click(function () {
+                    let rewardId = $(this).data("id");
+                    let rewardAmount = $(this).data("reward");
+
+                    if (!userId) {
+                        alert("You must be logged in to apply rewards.");
+                        window.location.href = "login.html";
+                        return;
+                    }
+
+
+                    $.ajax({
+                        url: `https://localhost:7183/api/Users/applyReward?userId=${userId}&rewardId=${rewardId}`,
+                        type: "POST",
+                        success: function () {
+                            alert(`Successfully applied reward of ₹${rewardAmount}!`);
+                        },
+                        error: function () {
+                            alert("Failed to apply reward.");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <!-- HTML -->
+    <div class="navbar">
+        <div class="logo">Shop<span style="color: purple;">Bazaar</span></div>
+        <div>
+            <a href="home.html">Home</a>
+            <a href="product.html">Product</a>
+            <a href="offer.html">Giftcard</a>
+            <a href="cart.html">Cart</a>
+            <a href="login.html">Logout  <i style="font-size:15px" class="fa">&#xf08b;</i></a>
+        </div>
+    </div>
+
+    <div class="ayush">
+        <input type="text" id="search-bar" class="search-bar" placeholder="Search for cashback & rewards...">
+    </div>
+
+    <div class="cashback-rewards-container">
+        <p>Loading Cashback & Rewards...</p>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="aboutus.html">About Us</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="FAQs.html">FAQs</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="footer-text">
+            <p>&copy; 2025 ShopBazaar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopBazaar - Enter Pin Code</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-512.png">
+
+    <!-- CSS -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(https://media.licdn.com/dms/image/v2/C5622AQFnRNCLO6zWOQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1615818330814?e=2147483647&v=beta&t=YPdjOSu2S4bT5ylqHndodzTbOZ01lvuxQVZ4FRPlUtg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .navbar {
+            background-color: transparent;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            margin: 5px;
+        }
+
+        .navbar a:hover {
+            color: skyblue;
+            opacity: 100px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .container {
+            margin-top: 150px;
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 30px;
+            margin-bottom: 20px;
+            margin-left: -90px;
+        }
+
+        .pin-input {
+            padding: 10px;
+            font-size: 18px;
+            width: 40%;
+            margin: 10px 0;
+            border-radius: 30px;
+            border-style: none;
+            text-align: center;
+        }
+
+        .submit-btn {
+            background-color: purple;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            border-style: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #70076b;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            font-size: 16px;
+            margin-left: -30px;
+        }
+
+        .location-details {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 10px;
+            text-align: center;
+            color: black;
+            width: 500px;
+            margin-left: 620px;
+            display: none;
+        }
+
+        .location-details div {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .location-details .label {
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: transparent;
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        footer .footer-links a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        footer .footer-links a:hover {
+            color: skyblue;
+        }
+
+        footer .footer-text {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .loading {
+            display: none;
+            font-size: 16px;
+            color: white;
+        }
+    </style>
+
+    <!-- JS -->
+    <script>
+        $(document).ready(function () {
+          
+            $("#pinCode").focus();
+
+        
+            $("#pinCode").on("input", function () {
+                const pinCode = $(this).val().trim();
+                if (pinCode.length === 6 && !isNaN(pinCode)) {
+                    $("#error-message").text("");
+                } else {
+                    $("#error-message").text("Pin code should be a 6-digit number.");
+                }
+            });
+
+            $("#submitPin").click(function () {
+                let pinCode = $("#pinCode").val().trim();
+
+              
+                $("#error-message").text("");
+                $("#location-details").hide();
+                $(".loading").show();
+
+                if (!pinCode) {
+                    $("#error-message").text("Please enter a valid pin code.");
+                    $(".loading").hide();
+                    return;
+                }
+
+                if (pinCode.length !== 6 || isNaN(pinCode)) {
+                    $("#error-message").text("Pin code should be a 6-digit number.");
+                    $(".loading").hide();
+                    return;
+                }
+
+           
+                $.ajax({
+                    url: `https://api.postalpincode.in/pincode/${pinCode}`,
+                    type: "GET",
+                    success: function (data) {
+                        $(".loading").hide();
+                        if (data[0].Status === "Success") {
+                            const location = data[0].PostOffice[0];
+                            const state = location.State || "N/A";
+                            const district = location.District || "N/A";
+                            const name = location.Name || "N/A";
+
+                            $("#location-pin").text(pinCode);
+                            $("#location-state").text(state);
+                            $("#location-district").text(district);
+                            $("#location-name").text(name);
+                            $("#delivery-status").text("Delivery is Available: Deliver product in 2 Days!");
+
+                            $("#location-details").show();
+                        } else {
+                            $("#error-message").text("Invalid pin code or delivery is not available.");
+                        }
+                    },
+                    error: function () {
+                        $(".loading").hide();
+                        $("#error-message").text("Failed to check delivery details. Please try again.");
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo"><span style="color: skyblue;">Shop</span><span style="color: purple;">Bazaar</span></div>
+        <div>
+            <a href="home.html">Home</a>
+            <a href="product.html">Product</a>
+            <a href="offer.html">Giftcard</a>
+            <a href="cart.html">Cart</a>
+            <!-- <a href="myorder.html">Orders</a> -->
+            <a href="login.html">Logout  <i style="font-size:15px" class="fa">&#xf08b;</i></a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="title">Enter your Pin Code</h1>
+        <input type="text" id="pinCode" class="pin-input" placeholder="Enter Pin Code" maxlength="6">
+        <button class="submit-btn" id="submitPin">Check Delivery</button>
+        <div class="error-message" id="error-message"></div>
+
+        <div class="loading">Checking delivery details...</div>
+
+        <div class="location-details" id="location-details">
+            <div><span class="label">Pin Code:</span> <span id="location-pin"></span></div>
+            <div><span class="label">State:</span> <span id="location-state"></span></div>
+            <div><span class="label">District:</span> <span id="location-district"></span></div>
+            <div><span class="label">Name Of Area:</span> <span id="location-name"></span></div>
+            <div><span class="label">Delivery Available:</span> <span id="delivery-status"></span></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="aboutus.html">About Us</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="FAQs.html">FAQs</a>
+            <a href="Reviews.html">Reviews</a>
+        </div>
+        <div class="footer-text">
+            <p>&copy; 2025 ShopBazaar. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

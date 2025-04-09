@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopBazaar- Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+     <link rel="icon" type="image/x-icon" href="https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-512.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- CSS -->
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(https://www.sleeplessmedia.com/wp-content/uploads/2010/09/extensive-ecommerce-banner.jpg);
+      background-repeat: no-repeat;
+      background-size:cover;
+        color: white;
+        text-align: center;
+        background-attachment: fixed;
+    }
+
+    .navbar {
+        background-color: transparent;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 25px;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 12px 20px;
+        font-size: 18px;
+        margin: 5px;
+    }
+    .navbar a:hover{
+        color: skyblue;
+        border-radius: 20px;
+    }
+
+    .navbar .logo {
+        font-size: 24px;
+        font-weight: 600;
+        color: skyblue;
+    }
+    .navbar .navbar-links a:hover {
+  background-color: #70076b;
+}
+
+
+    .search-bar {
+        margin: 20px auto;
+        padding: 10px;
+        width: 60%;
+        font-size: 18px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        background-color: rgba(234, 234, 234, 0.7);
+        color: #333;
+        height: 40px;
+        margin-right: 60px;
+        text-align: center;
+    }
+
+    .products-container {
+        padding: 40px 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        max-width: 1500px;
+        margin: 0 auto;
+    }
+
+
+    .logout-btn
+     {
+        background-color: transparent;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        cursor: pointer;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+  
+    .cart-btn {
+        background-color: purple;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        cursor: pointer;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    
+    .cart-btn:hover {
+        background-color: #70076b;
+        transform: scale(1.05);
+    }
+
+    .logout-btn:hover
+    {
+        background-color: rgb(174, 16, 16);
+        transform: scale(1.05);
+    }
+
+    .product-card {
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        color: black;
+    }
+
+    .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card-img {
+        position: relative;
+        width: 100%;
+        height: 230px;
+        overflow: hidden;
+        border-radius: 13px;
+    }
+
+    .product-card-img img {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease;
+    }
+
+    .product-card-img img:hover {
+        transform: scale(1.1);
+    }
+
+    .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.3s ease;
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .product-card-img:hover .image-overlay {
+        opacity: 1;
+    }
+
+    .overlay-text {
+        font-size: 16px;
+        font-weight: bold;
+        padding: 5px;
+        color: #fff;
+    }
+
+    .product-card h3 {
+        font-size: 20px;
+        margin: 15px 0;
+    }
+
+    .price {
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+        margin-bottom: 15px;
+    }
+
+    .original-price {
+        font-size: 15px;
+        color: grey;
+        text-decoration: line-through;
+        margin-right: 15px;
+    }
+
+    .discounted-price {
+        font-size: 20px;
+        color: black;
+    }
+
+    .discount-percentage {
+        font-size: 15px;
+        color: green;
+        margin-left: 3px;
+    }
+
+    .bank-offer {
+        font-size: 14px;
+        color: green;
+        margin-top: 12px;
+    }
+
+    .offer-details {
+        display: none;
+        margin-top: 5px;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .bank-offer:hover .offer-details {
+        display: block;
+    }
+
+    .add-to-cart {
+        background: purple;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: background 0.3s ease;
+        margin-top: 20px;
+    }
+
+    .add-to-cart:hover {
+        background: rgb(64, 2, 64);
+    }
+
+    .buy-now {
+        background: purple;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: background 0.3s ease;
+        margin-top: 20px;
+    }
+
+    .buy-now:hover {
+        background: rgb(64, 2, 64);
+    }
+
+
+
+.top-selling-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color:red; 
+    color: white;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.filter-section {
+    background-color: rgba(234, 234, 234, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+    width: 300px;
+    margin: 20px;
+    position: sticky;
+    top: 20px;
+    display: none; 
+    transition: all 0.3s ease; 
+}
+
+.filter-section.show {
+    display: block; 
+}
+
+        .filter-section h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .filter-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid black;
+            color: black;
+            background-color: transparent;
+        }
+
+        #price-range {
+            width: 100%;
+        }
+
+footer {
+            background-color: transparent;
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        footer .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        footer .footer-links a:hover {
+            color: skyblue;
+        }
+
+        footer .footer-text {
+            text-align: center;
+            font-size: 14px;
+        }
+
+.ayush{
+   display: flex;
+   flex-direction: row;
+   margin-right: 380px;
+}
+
+</style>
+
+<!-- JS -->
+<script>
+  $(document).ready(function () {
+    let userEmail = sessionStorage.getItem("userEmail");
+    let userId = sessionStorage.getItem("userId");
+
+    console.log("Retrieved userId:", userId);
+
+    if (!userEmail || !userId) {
+        window.location.href = "login.html";
+    } else {
+        $("#user-email").text(userEmail);
+        loadProducts();
+    }
+
+    $(".logout-btn").click(function () {
+        sessionStorage.clear();
+        window.location.href = "login.html";
+    });
+
+    $(".filter-btn").click(function () {
+        $(".filter-section").toggleClass("show");
+    });
+
+    $("#search-bar").on("input", function () {
+        let searchTerm = $(this).val().toLowerCase();
+        filterProducts(searchTerm); 
+    });
+
+    $(".filter-input").change(function () {
+        filterProducts(); 
+    });
+
+    $("#price-range").on("input", function () {
+        let priceValue = $(this).val();
+        $("#price-range-value").text(`₹0 - ₹${priceValue}`);
+        filterProducts(); 
+    });
+
+    function loadProducts() {
+        $.ajax({
+            url: "https://localhost:7183/api/Users/products",
+            type: "GET",
+            success: function (products) {
+                $(".products-container").empty();
+                console.log(products);
+
+                if (products.length === 0) {
+                    $(".products-container").html("<p>No products available.</p>");
+                    return;
+                }
+
+                window.allProducts = products;
+                displayProducts(products); 
+            },
+            error: function () {
+                alert("Failed to load Products.");
+            }
+        });
+    }
+
+    function displayProducts(products) {
+        products.forEach(product => {
+            let imageUrl = `IMAGES/${product.photo}`;
+            let discountPercentage = Math.round(((product.oprice - product.dprice) / product.oprice) * 100);
+
+            let topSellingTag = '';
+            if (product.id === 13 || product.id === 15 || product.id === 16 || product.id === 24) {
+                topSellingTag = `
+                    <div class="top-selling-tag">Top Seller</div>
+                `;
+            }
+
+            let ratingStars = '';
+            for (let i = 0; i < 5; i++) {
+                ratingStars += (i < product.rating) ? '<span class="fa fa-star"></span>' : '<span class="fa fa-star-o"></span>';
+            }
+
+            $(".products-container").append(`
+                <div class="product-card">
+                    <div class="product-card-img">
+                        ${topSellingTag}
+                        
+                        <img src="${imageUrl}" alt="${product.name}" onerror="this.onerror=null; this.src='IMAGES/default.jpg';">
+                        <div class="image-overlay">
+                            <p class="overlay-text">${product.description}</p>
+                        </div>
+                    </div>
+                    <h3>${product.name}</h3>
+                    <p class="price">
+                        <span class="discounted-price">₹${product.dprice}</span>
+                        <span class="original-price">₹${product.oprice}</span>
+                        <span class="discount-percentage">${discountPercentage}% Off</span>
+                        <div class="bank-offer">
+                            <strong> Bank Offer</strong> 
+                            <div class="offer-details">
+                                <p>Get 10% cashback with IDFC First Bank!*</p>
+                            </div>
+                        </div>
+                    </p>
+                    <button class="add-to-cart" data-id="${product.id}" data-price="${product.dprice}"><i style="font-size:15px" class="fa">&#xf217;</i></button>
+                    <button class="buy-now" data-id="${product.id}" data-price="${product.dprice}" data-name="${product.name}" data-photo="${imageUrl}">BUY NOW</button>
+                </div>
+            `);
+        });
+
+        // Add to Cart functionality
+        $(".add-to-cart").click(function () {
+            let productId = $(this).data("id");
+            let productPrice = $(this).data("price");
+
+            if (!userId) {
+                alert("User ID missing, please log in again.");
+                window.location.href = "login.html";
+                return;
+            }
+
+            $.ajax({
+                url: `https://localhost:7183/api/Users/addToCart?userId=${userId}&productId=${productId}`,
+                type: "POST",
+                success: function () {
+                    alert("Product added to cart successfully!");
+                    $(this).prop('disabled', true).text('Added to Cart');
+                },
+                error: function (xhr) {
+                    alert("Failed to add Product to cart.");
+                }
+            });
+        });
+
+        // Buy Now functionality
+        $(".buy-now").click(function () {
+            let productId = $(this).data("id");
+            let productPrice = $(this).data("price");
+            let productName = $(this).data("name");
+            let productImage = $(this).data("photo");
+
+            if (!userId) {
+                alert("You must be logged in to make a purchase.");
+                window.location.href = "login.html";  
+                return;
+            }
+
+            let paymentUrl = `payment.html?productId=${productId}&productName=${encodeURIComponent(productName)}&productPrice=${productPrice}&productImage=${encodeURIComponent(productImage)}`;
+            window.location.href = paymentUrl;
+        });
+    }
+
+    
+
+
+
+    function filterProducts(searchTerm = "") {
+        let category = $("#category").val().toLowerCase();
+        let maxPrice = $("#price-range").val();
+        let rating = $("#rating").val();
+
+        let filteredProducts = window.allProducts.filter(product => {
+            let isCategoryMatch = category ? product.category.toLowerCase() === category : true;
+            let isPriceMatch = product.dprice <= maxPrice;
+            let isRatingMatch = rating ? product.rating >= rating : true;
+            let isSearchMatch = product.name.toLowerCase().includes(searchTerm);
+
+            return isCategoryMatch && isPriceMatch && isRatingMatch && isSearchMatch;
+        });
+
+        $(".products-container").empty();
+        if (filteredProducts.length === 0) {
+            $(".products-container").html("<p>No products found.</p>");
+        } else {
+            displayProducts(filteredProducts);
+        }
+    }
+});
+
+
+
+</script>
+    
+
+</head>
+
+<body>
+
+<!-- HTML -->
+    <div class="navbar">
+        <div class="logo">Shop<span style="color: purple;">Bazaar</span></div>
+        <div>
+            <a href="home.html">Home</a>
+            <a href="product.html">Product</a>
+            <a href="offer.html">Giftcard</a>
+            <a href="cart.html">Cart</a>
+            <!-- <a href="myorder.html">Orders</a> -->
+            <a href="login.html">Logout  <i style="font-size:15px" class="fa">&#xf08b;</i></a>
+        </div>
+    </div>
+
+ <div class="ayush">
+    
+    <input type="text" id="search-bar" class="search-bar" placeholder="Search for products...">
+   
+    <button type="button" class="filter-btn" style="background-color: rgb(122, 121, 121); color: white; border: 1px solid GREY;padding: 10px 28px; border-radius: 30px; font-weight: 400; height: 45px;margin-top: 18px;">
+        <i style='font-size:15px' class='fas'>&#xf0b0;</i>  Filter 
+      </button>
+    <div class="filter-section">
+        <h3>Filter Products</h3>
+
+        <label for="category"></label>
+        <select id="category" class="filter-input"> 
+            <option value="">All Categories</option>
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+            <option value="home">Home</option>
+        </select>
+
+        <label for="price-range">Price Range</label>
+        <input type="range" id="price-range" class="filter-input" min="55" max="100000" step="100" value="0">
+        <span id="price-range-value">₹0 - ₹100000</span><br>
+
+        <label for="rating"></label><br>
+        <select id="rating" class="filter-input">
+            <option value="">All Ratings</option>
+            <option value="1">1 Star & Up</option>
+            <option value="2">2 Stars & Up</option>
+            <option value="3">3 Stars & Up</option>
+            <option value="4">4 Stars & Up</option>
+            <option value="5">5 Stars Only</option>
+        </select>
+    </div>
+    </div>
+
+    
+
+    <div class="products-container">
+        <p>Loading Products...</p>
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="aboutus.html">About Us</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="FAQs.html">FAQs</a>
+            <a href="Reviews.html">Reviews</a>
+        </div>
+        <div class="footer-text">
+            <p>&copy; 2025 ShopBazaar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopBazaar - About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-512.png">
+
+    <!-- CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: center;
+            background-attachment: fixed;
+            background-color: aliceblue;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            background-image: url(https://synodica.com/web/image/4174-1e2f3ec2/about-us-synodica.png);
+
+        }
+
+       
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .navbar {
+            background-color: transparent;
+            padding: 10px 20px;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            z-index: 1;
+            display: flex;
+           
+        }
+
+    
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            color: skyblue;
+            opacity: 100px;
+        }
+
+        .navbar .logo {
+            font-size: 30px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 14px;
+        }
+
+        .about-banner {
+            padding: 100px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .about-banner h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .about-banner p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .team-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            padding: 40px 20px;
+        }
+
+        .team-member {
+            width: 300px;
+            margin: 20px;
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            color: black;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .team-member h4 {
+            font-size: 22px;
+            margin-top: 15px;
+        }
+
+        .team-member p {
+            font-size: 16px;
+            color: gray;
+        }
+
+        .mission-section {
+            background-color: rgb(54, 53, 53);
+            color: white;
+            padding: 60px 20px;
+            width: 1000px;
+            margin-left: 450px;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .mission-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .mission-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .contact-btn {
+            background-color: purple;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #70076b;
+        }
+
+        .visitor-info {
+            font-size: 18px;
+            color: white;
+            margin-top: 30px;
+        }
+
+       
+        .visitor-box, .happy-customers-box {
+            background-color: rgba(255, 255, 255, 0.3);
+            border: 2px solid white;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 10px;
+            margin-right: 15px;
+        }
+
+        .visitor-count {
+            font-size: 24px;
+            font-weight: bold;
+            color: skyblue;
+        }
+
+        .happy-customers-count {
+            font-size: 24px;
+            font-weight: bold;
+            color: lightgreen;
+        }
+
+        footer {
+            background-color: transparent;
+            padding: 40px 20px;
+            margin-top: 50px;
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .footer-links a:hover {
+            color: skyblue;
+        }
+
+        .footer-text {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .team-member {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .about-banner h1 {
+                font-size: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-banner h1 {
+                font-size: 28px;
+            }
+
+            .about-banner p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo"><span style="color: skyblue;">Shop</span><span style="color: purple;">Bazaar</span></div>
+        <div>
+            <a href="home.html">Home</a>
+            <a href="product.html">Products</a>
+            <a href="offer.html">Giftcards</a>
+            <a href="cart.html">Cart</a>
+            <!-- <a href="myorder.html">Orders</a> -->
+            <a href="login.html">Logout <i style="font-size:15px" class="fa">&#xf08b;</i></a>
+        </div>
+    </div>
+
+    <div class="about-banner">
+        <h1>About <span style="color: skyblue;">ShopBazaar</span></h1>
+        <p>Your ultimate destination for the best online shopping experience. We aim to bring top products at your fingertips!</p>
+    </div>
+
+    <div class="mission-section">
+        <h2>Our Mission</h2>
+        <p>At ShopBazaar, we strive to provide a seamless and secure shopping experience. Our mission is to offer a wide variety of products, including electronics, fashion, and much more, at affordable prices. We are committed to ensuring customer satisfaction through fast delivery, excellent customer service, and easy returns.</p>
+        <a href="contactus.html" class="contact-btn">Contact Us</a>
+    </div>
+
+    <div class="team-section">
+        <div class="team-member">
+            <img src="https://media.istockphoto.com/id/522855255/vector/male-profile-flat-blue-simple-icon-with-long-shadow.jpg?s=612x612&w=0&k=20&c=EQa9pV1fZEGfGCW_aEK5X_Gyob8YuRcOYCYZeuBzztM=" alt="">
+            <h4>Ayush Vala</h4>
+            <p>CEO & Founder</p>
+        </div>
+        <div class="team-member">
+            <img src="https://media.istockphoto.com/id/522855255/vector/male-profile-flat-blue-simple-icon-with-long-shadow.jpg?s=612x612&w=0&k=20&c=EQa9pV1fZEGfGCW_aEK5X_Gyob8YuRcOYCYZeuBzztM=" alt="">
+            <h4>Harsh Joshi</h4>
+            <p>Marketing Head</p>
+        </div>
+        <div class="team-member">
+            <img src="https://media.istockphoto.com/id/522855255/vector/male-profile-flat-blue-simple-icon-with-long-shadow.jpg?s=612x612&w=0&k=20&c=EQa9pV1fZEGfGCW_aEK5X_Gyob8YuRcOYCYZeuBzztM=" alt="">
+            <h4>Jaydip Vaghela</h4>
+            <p>Lead Developer</p>
+        </div>
+    </div>
+
+    <div class="visitor-info">
+        <div class="happy-customers-box">
+        <p><span id="visitor-count" class="visitor-count">Loading...</span><br>Total Visitor</p>
+        <!-- <p>Welcome, <span id="visitor-name">Visitor</span>!</p>--></div> 
+       
+        <div class="happy-customers-box">
+            <p> <span class="happy-customers-count">10,000+</span><br>Happy Customers:</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="aboutus.html">About Us</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="FAQs.html">FAQs</a>
+            <a href="Reviews.html">Reviews</a>
+        </div>
+        <div class="footer-text">
+            <p>&copy; 2025 ShopBazaar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const visitorCountKey = "visitorCount";
+        const visitorNameKey = "visitorName";
+
+        let visitorCount = localStorage.getItem(visitorCountKey) || 0;
+        visitorCount = parseInt(visitorCount) + 1;
+        localStorage.setItem(visitorCountKey, visitorCount);
+
+      
+        document.getElementById("visitor-count").textContent = visitorCount;
+        document.getElementById("visitor-name").textContent = visitorName;
+    </script>
+</body>
+
+</html>

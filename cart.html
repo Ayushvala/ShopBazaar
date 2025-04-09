@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopBazaar - Cart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="icon" type="image/x-icon"
+    href="https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-512.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- CSS  -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+       background-image: url(https://i.pinimg.com/originals/bf/ce/9c/bfce9c51c188bcf2f08c7ff1a824ea7a.gif);
+      background-repeat: no-repeat;
+      background-size: cover; 
+      background-position: center;
+      background-attachment: fixed;
+      background-color:  #151515;
+      color: #161616;
+      line-height: 1.5;
+      padding: 20px;
+    }
+
+    body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
+}
+
+    /* .header {
+      background-color: transparent;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    } */
+
+    .header h2 {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .logout-btn {
+      background-color: transparent;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      cursor: pointer;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      height: 35px;
+      margin-top: 13px;
+    }
+
+    .logout-btn:hover {
+      background-color: rgb(174, 16, 16);
+      transform: scale(1.05);
+    }
+
+    .navbar {
+      background-color: transparent;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: skyblue;
+      margin-bottom: 20px;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .navbar .navbar-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .navbar .navbar-links a {
+      color: white;
+      text-decoration: none;
+      padding: 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar .navbar-links a:hover {
+      color: skyblue;
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: 600;
+      color: skyblue;
+    }
+
+    .cart-container {
+     
+      width: 100%;
+     margin-top: 60px;
+      background-color: transparent;
+      padding: 40px;
+      border-radius: 10px;
+    
+    }
+
+    .cart-container h3 {
+      font-size: 30px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      width: 1100px;
+      margin-left: 280px;
+      margin-top: 40px;
+    }
+
+    .cart-item:hover {
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transform: scale(1.02);
+    }
+
+    .cart-item img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .cart-item .details {
+      flex: 1;
+      padding-left: 20px;
+    }
+
+    .cart-item .details p {
+      margin-bottom: 8px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .cart-item .details p strong {
+      font-weight: 600;
+      color: purple;
+    }
+
+    .remove-btn {
+      background-color: skyblue;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    
+
+    .remove-btn:hover {
+      background-color: #0b6682;
+      transform: scale(1.05);
+    }
+
+    .checkout-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+     
+    }
+
+    .total {
+      font-size: 22px;
+      font-weight: 600;
+      color: white;
+      margin-left: 280px;
+      margin-top: 30px
+    }
+
+    .checkout-btn {
+      background-color: skyblue;
+      color: white;
+    
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-right: 990px;
+      width: 170px;
+      margin-left: 100px;
+    }
+
+    .checkout-btn:hover {
+      background-color: #0b6682;
+    }
+
+    .checkout-btn1 {
+      background-color: skyblue;
+      color: white;
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+     margin-left: 160px;
+    
+    
+    }
+
+    .checkout-btn1:hover {
+      background-color: #0b6682;
+    }
+
+    .cart-image {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .cart-image img {
+      width: 40%;
+      max-width: 350px;
+      height: auto;
+    }
+
+    .cart-item-count {
+  font-size: 14px;
+  font-weight: bold;
+  color: skyblue;
+  margin-left: 5px;
+}
+
+.ayush{
+  display: flex;
+  gap: -15px;
+  margin-top: -20px
+
+
+ 
+}
+
+.pin-now {
+            background: skyblue;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 400;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 1500px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-left: 780px;
+           
+            
+        }
+
+        .pin-now:hover {
+            background: #0b6682;
+            
+        }
+
+        footer {
+            background-color: transparent;
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        footer .footer-links a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        footer .footer-links a:hover {
+            color: skyblue;
+        }
+
+        footer .footer-text {
+            text-align: center;
+            font-size: 14px;
+        }
+
+  .promo-code-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+  margin-left: 120PX;
+}
+
+.promo-code-container input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 250px;
+}
+
+.promo-code-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: skyblue;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.promo-code-container button:hover {
+  background-color: #0b6682;
+}
+
+
+
+  </style>
+
+  <!-- JS -->
+  <script>
+
+    
+$(document).ready(function () {
+  let userId = sessionStorage.getItem("userId");
+  let userEmail = sessionStorage.getItem("userEmail");
+  let userName = sessionStorage.getItem("userName");
+
+  if (!userEmail || !userId) {
+    window.location.href = "login.html";
+  } else {
+    $("#Useremail").text(userEmail);
+    loadCart();
+  }
+
+  $(".logout-btn").click(function () {
+    sessionStorage.removeItem("userEmail");
+    sessionStorage.removeItem("userId");
+    window.location.href = "login.html";
+  });
+
+  let appliedDiscount = 0;
+  let total = 0; 
+
+  $(".apply-promo-btn").click(function () {
+    let promoCode = $("#promo-code").val().trim();
+    if (promoCode === "DISCOUNT10") {
+      appliedDiscount = 0.10;
+      alert("Promo code applied successfully!");
+      updateTotalPrice();
+    } else {
+      alert("Invalid promo code.");
+    }
+  });
+
+  function updateTotalPrice() {
+    let updatedTotal = 0;
+    $(".cart-item").each(function () {
+      let itemPrice = parseFloat($(this).find(".details p:last-child").text().replace("Price: ₹", ""));
+      updatedTotal += itemPrice;
+    });
+
+    if (appliedDiscount > 0) {
+      updatedTotal = updatedTotal - (updatedTotal * appliedDiscount);
+    }
+
+    $(".total").text("Total: ₹" + updatedTotal.toFixed(2));
+  }
+
+  function renderCartItems(cart) {
+    $(".cart-items").empty();
+    total = 0; 
+    let cartDetails = [];
+
+    if (cart.length === 0) {
+      $(".cart-items").html("<p>Your cart is empty.</p>");
+      $(".total").text("");
+      return;
+    }
+
+    cart.forEach((item) => {
+      let imageUrl = item.Photo ? `IMAGES/${item.Photo}` : "IMAGES/default.jpg";
+      total += item.Dprice;
+      cartDetails.push({
+        name: item.ProductName,
+        photo: imageUrl,
+        price: item.Dprice
+      });
+
+      $(".cart-items").append(`
+        <div class="cart-item">
+          <img src="${imageUrl}" alt="${item.ProductName}" onerror="this.onerror=null; this.src='IMAGES/default.jpg';">
+          <div class="details">
+            <p><strong>${item.ProductName}</strong></p>
+            <p>Price: ₹${item.Dprice.toFixed(2)}</p>
+          </div>
+          <button class="remove-btn" data-product-id="${item.ProductId}">Remove</button>
+        </div>
+      `);
+    });
+
+    $(".total").text("Total: ₹" + total.toFixed(2));
+    updateTotalPrice();
+
+    $(".remove-btn").click(function () {
+      let productId = $(this).data("product-id");
+      removeFromCart(productId);
+    });
+
+    $(".checkout-btn").click(function () {
+      generateBill(cartDetails, total);
+    });
+
+    $(".checkout-btn1").click(function () {
+   
+      let finalPrice = appliedDiscount > 0 ? (total - (total * appliedDiscount)) : total;
+      console.log(finalPrice);
+      sessionStorage.setItem("finalPrice", finalPrice); 
+      sessionStorage.setItem("cartDetails", JSON.stringify(cartDetails)); 
+      window.location.href = "payment1.html"; 
+    });
+  }
+
+  function removeFromCart(productId) {
+    $.ajax({
+      url: `https://localhost:7183/api/Users/deleteFromCart?productId=${productId}&userId=${userId}`,
+      type: "DELETE",
+      success: function (response) {
+        if (response.success) {
+          alert("Product removed from cart!");
+          loadCart();
+        } else {
+         
+        }
+      },
+    });
+  }
+
+  function generateBill(cartDetails, total) {
+    let billHtml = `
+      <div style="max-width: 800px; margin: 20px auto; padding: 30px; border: 1px solid #ccc; background-color: #fff; font-family: Arial, sans-serif;">
+        <h2 style="text-align: center; color: purple;">ShopBazaar</h2>
+        <p><strong>Date:</strong>${new Date().toLocaleDateString()}</p>
+        <p><strong>Customer Name:</strong> ${sessionStorage.getItem('userEmail')}</p><br>
+        <hr>
+        <div>
+          <h4 style="text-align: center; margin-top:10px">Shopping Invoice</h4>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+            <thead>
+              <tr style="background-color: #f9f9f9;">
+                <th style="padding: 10px; border: 1px solid #ddd;">Product Name</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+    `;
+
+    cartDetails.forEach(item => {
+      billHtml += `
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">${item.name}</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">₹${item.price.toFixed(2)}</td>
+        </tr>
+      `;
+    });
+
+    billHtml += `
+      </tbody>
+      </table>
+      </div>
+      <hr>
+      <div style="text-align: right; margin-top: 20px;">
+        <p><strong>Total: </strong>₹${total.toFixed(2)}</p>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <button style="background-color: purple; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" onclick="window.print()">Print Bill</button>
+      </div>
+    </div>
+    `;
+
+    let billWindow = $(".cart-container").html(billHtml)('', '', 'width=800,height=600');
+    billWindow.document.write(billHtml);
+    billWindow.document.close();
+  }
+
+  function loadCart() {
+    $.ajax({
+      url: `https://localhost:7183/api/Users/getCartItems/${userId}`,
+      type: "GET",
+      success: function (response) {
+        console.log(response);
+        renderCartItems(response);
+      },
+      error: function () {
+        alert("Cart is empty. Please add product.");
+      }
+    });
+  }
+});
+
+
+
+  </script>
+
+</head>
+
+<body>
+
+  <!-- HTML -->
+
+  <div class="navbar">
+    <h2>Shop<span style="color: purple;">Bazaar</span></h2>
+    <div class="navbar-links">
+      <a href="home.html">Home</a>
+      <a href="product.html">Product</a>
+      <a href="offer.html">Giftcard</a>
+      <a href="cart.html">Cart <span id="cart-item-count" class="cart-item-count"></span></a>
+      <!-- <a href="myorder.html">Orders</a> -->
+      <a href="login.html" >Logout  <i style="font-size:15px" class="fa">&#xf08b;</i></a>
+      
+    </div>
+  </div>
+
+  <div class="header">
+  </div>
+
+  <div class="cart-container">
+
+    <div class="cart-items"></div>
+<div class="ayush">
+    <div class="checkout-container">
+      <p class="total">Total: ₹0.00</p>
+      <div class="promo-code-container">
+        <input type="text" id="promo-code" placeholder="Enter promo code" />
+        <button class="apply-promo-btn">Apply Promo Code</button>
+    </div>
+    <div class="checkout-container">
+      <button class="checkout-btn1">Proceed to Payment</button>
+  </div>
+</div>
+</div>
+</div>
+
+
+    <div class="cart-image">
+      <img
+        src="https://cdn3d.iconscout.com/3d/premium/thumb/man-pushing-shopping-cart-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--trolley-buddy-pack-e-commerce-illustrations-10938746.png"
+        alt="Cash Counter Illustration">
+    </div>
+  </div>
+  <a href="delivery.html" class="pin-now" >Know Estimated Delivery Time</a>
+
+  <footer>
+    <div class="footer-links">
+        <a href="aboutus.html">About Us</a>
+        <a href="contactus.html">Contact Us</a>
+        <a href="FAQs.html">FAQs</a>
+        <a href="Reviews.html">Reviews</a>
+    </div>
+    <div class="footer-text">
+        <p>&copy; 2025 ShopBazaar. All Rights Reserved.</p>
+    </div>
+</footer>
+</body>
+
+</html>

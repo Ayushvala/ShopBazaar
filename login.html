@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopBazaar - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-512.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: white;
+            background-size: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .preloader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            display: none;
+            background-color: white;
+        }
+
+        .container {
+            width: 360px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 90%;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            color: purple;
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fafafa;
+            color: #333;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+
+        input:focus {
+            border-color: purple;
+            outline: none;
+            box-shadow: 0 0 5px rgba(92, 107, 192, 0.5);
+        }
+
+        .btn {
+            background-color: purple;
+            color: white;
+            padding: 14px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .btn:hover {
+            background-color: #460958;
+        }
+
+        .register-link {
+            margin-top: 20px;
+            color: #5C6BC0;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .register-link:hover {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        .toast {
+            position: fixed;
+            margin-top: 870px;
+            right: 40px;
+            background-color: green;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease, top 0.5s ease;
+        }
+
+        .toast.show {
+            display: block;
+            opacity: 1;
+            top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 80%;
+                padding: 30px;
+            }
+
+            h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            input {
+                font-size: 14px;
+            }
+
+            .btn {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 90%;
+                padding: 25px;
+            }
+
+            h2 {
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+
+            input {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .btn {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
+    </style>
+
+    <!-- JS -->
+    <script>
+        $(document).ready(function () {
+            
+            function showToast(message, isError = false) {
+                $("#toast").text(message).addClass(isError ? 'show error' : 'show');
+                setTimeout(function () {
+                    $("#toast").removeClass('show');
+                }, 3000);
+            }
+
+      
+            $('input').on('keypress', function (e) {
+                if (e.which === 13) {
+                    $(".btn").click();
+                }
+            });
+
+            function validateEmail(email) {
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return regex.test(email);
+            }
+
+            $(".btn").click(function () {
+                let email = $("#email").val();
+                let password = $("#password").val();
+
+                if (email === "" || password === "") {
+                    showToast("Please fill all fields.", true);
+                    return;
+                }
+
+                if (!validateEmail(email)) {
+                    showToast("Please enter a valid email address.", true);
+                    return;
+                }
+
+                if (password.length < 6) {
+                    showToast("Password should be at least 6 characters long.", true);
+                    return;
+                }
+
+                $(".preloader").show();
+
+                $.ajax({
+                    url: "https://localhost:7183/api/Users/login",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        email: email,
+                        password: password
+                    }),
+                    success: function (response) {
+                        showToast("Login successful!");
+
+                        sessionStorage.setItem("userEmail", email);
+                        sessionStorage.setItem("userId", response.userId);
+
+                        setTimeout(function () {
+                            $(".preloader").hide();
+                            window.location.href = "home.html";
+                        }, 3000); 
+                    },
+                    error: function (xhr) {
+                        $(".preloader").hide();
+                        showToast(xhr.responseJSON.message || "Login failed. Please check your credentials.", true);
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<!-- HTML -->
+<body>
+
+    <div class="preloader">
+        <img src="https://blog.stackfindover.com/wp-content/uploads/2021/09/Cool-CSS-Loader.gif" alt="Preloading..." />
+    </div>
+
+    <div class="container">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Enter Email" required>
+        <input type="password" id="password" placeholder="Enter Password" required>
+        <button class="btn">Login</button>
+        <a href="registration.html" class="register-link">Don't have an account? Register here</a>
+    </div>
+
+    <div class="toast" id="toast"></div>
+</body>
+
+</html>

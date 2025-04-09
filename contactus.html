@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopBazaar - Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-512.png">
+
+    <!-- CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            background-color: rgba(237, 232, 232, 0.124);
+            text-align: center;
+            background-image: url(https://assets.website-files.com/618a89b153586d38f03fbdc2/618a89b153586d07cf3fc05e_58_Contact-us.gif);
+            background-position: right;
+            background-repeat: no-repeat;
+            background-size: auto;
+           
+        }
+
+        .navbar {
+            background-color: transparent;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .navbar a {
+            color: black;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            margin: 5px;
+        }
+
+        .navbar a:hover {
+            color: purple;
+            opacity: 100px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: skyblue;
+        }
+
+        .contact-us {
+            /* background-image: url('https://cdn3d.iconscout.com/3d/premium/thumb/atencion-al-cliente-4957420-4134024.png'); */
+            background-size: 350px;
+            background-position: 60px;
+            background-repeat: no-repeat;
+            color: rgb(0, 74, 103);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .contact-us h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .contact-us p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+       
+        .container {
+            width: 50%;
+            max-width: 12000px;
+            border-radius: 20px;
+            margin: 0 auto;
+    
+        }
+
+        .contact-form {
+            width: 60%;
+            margin: 0 auto;
+            padding: 30px ;
+            border-radius: 10px;
+            background-color: transparent;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: transparent;
+            color: black;
+            text-align: center;
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: skyblue;
+            color: black;
+            border-color: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: rgb(39, 108, 135);
+        }
+
+        .footer {
+            background-color: transparent;
+            color: black;
+            text-align: center;
+           
+            margin-top: 50px;
+        }
+
+        .footer a {
+            color: black;
+            text-decoration: none;
+           
+        }
+
+        .footer a:hover {
+            color: purple;
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                width: 80%;
+            }
+
+            .contact-us h1 {
+                font-size: 35px;
+            }
+
+            .contact-us p {  
+                font-size: 16px;
+            }
+        }
+
+        footer {
+            background-color: transparent;
+            color: black;
+      
+            margin-top: 40px;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        footer .footer-links a {
+            color: black;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        footer .footer-links a:hover {
+            color: purple;
+        }
+
+        footer .footer-text {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo">Shop<span style="color: purple;">Bazaar</span></div>
+        <div>
+            <a href="home.html">Home</a>
+            <a href="product.html">Product</a>
+            <a href="offer.html">Giftcard</a>
+            <a href="cart.html">Cart</a>
+            <!-- <a href="myorder.html">Orders</a> -->
+            <a href="login.html" class="logout-btn">Logout <i style="font-size:15px" class="fa">&#xf08b;</i></a>
+        </div>
+    </div>
+
+    <div class="contact-us">
+        <h1>Contact Us</h1>
+        <p>Have questions? We'd love to hear from you! Fill out the form below to reach out to us.</p>
+    </div>
+
+    <div class="container">
+        <div class="contact-form">
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                <input type="submit" value="Send Message">
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="aboutus.html">About Us</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="FAQs.html">FAQs</a>
+            <a href="Reviews.html">Reviews</a>
+        </div>
+        <div class="footer-text">
+            <p>&copy; 2025 ShopBazaar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $('#contactForm').submit(function (e) {
+                e.preventDefault();
+
+                var name = $('#name').val();
+                var email = $('#email').val();
+                var message = $('#message').val();
+
+                $.ajax({
+                    url: 'https://localhost:7183/api/Users/submit',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        name: name,
+                        email: email,
+                        message: message
+                    }),
+                    success: function (response) {
+                        alert("Your message has been sent successfully!");
+                        $('#contactForm')[0].reset();
+                    },
+                    error: function () {
+                        alert("There was an error submitting your message. Please try again.");
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

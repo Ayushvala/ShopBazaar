@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopBazaar - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-512.png">
+
+    <!-- CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: center;
+            background-attachment: fixed;
+            background-image: url(https://www.spiderindia.com/img/e-commerce-technology.gif);
+  
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative; 
+    min-height: 100vh;
+         
+        }
+
+        body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
+}
+
+.navbar {
+    background-color: transparent; 
+    padding: 10px 20px;
+ margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 1; 
+}
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 18px;
+          
+        }
+
+        .navbar a:hover {
+            color: skyblue;
+            opacity: 100px;
+        }
+
+        .navbar .logo {
+            font-size: 30px;
+            font-weight: 600;
+            color:white;
+            margin-bottom: 14px;
+        }
+
+        .banner {
+            color: white;
+            /* background-image: url(https://www.distributorschannel.com/retail-sarthi/asset/img/ecommerce.gif);
+            background-repeat: no-repeat;
+            background-size: cover; */
+       
+            padding: 100px 20px;
+            text-align: center;
+            margin-top: 130px;
+            
+        }
+
+        .banner h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .shop-now {
+            background: purple;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .shop-now:hover {
+            background: #70076b;
+        }
+
+        .pin-now {
+            background: purple;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .pin-now:hover {
+            background: #70076b;
+        }
+
+        
+
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+            background: transparent;
+            margin-top: -40px;
+        }
+
+        .feature-box {
+            width: 300px;
+            background: white;
+            color: black;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .feature-box i {
+            font-size: 50px;
+            color: purple;
+            margin-bottom: 10px;
+        }
+
+        .cart-btn {
+            background-color: purple;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn {
+            background-color: transparent;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cart-btn:hover {
+            background-color: #70076b;
+            transform: scale(1.05);
+        }
+
+        .logout-btn:hover {
+            background-color: rgb(174, 16, 16);
+            transform: scale(1.05);
+        }
+
+        .best-sellers {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+            background-color: transparent;
+        }
+
+        .best-seller-item {
+            background: white;
+            color: black;
+            width: 250px;
+            margin: 20px;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            width: 290px;
+        }
+
+        .best-seller-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .best-seller-item h4 {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .best-seller-item p {
+            font-size: 16px;
+            color: gray;
+        }
+
+        .best-seller-item .price {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 10px;
+            color: black;
+        }
+
+        .best-seller-item .popular-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: skyblue;
+            color: white;
+            padding: 5px 10px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .banner h1 {
+                font-size: 35px;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            .products-container {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .feature-box {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner h1 {
+                font-size: 28px;
+            }
+
+            .banner p {
+                font-size: 16px;
+            }
+
+            .shop-now {
+                padding: 10px 20px;
+            }
+
+            .best-seller-item img {
+                height: 150px;
+            }
+        }
+
+        #ayush::before {
+            content: "Welcome";
+            animation: animate infinite 8s;
+            padding-left: 10px;
+            margin-left: -20px;
+            color: skyblue;
+        }
+
+        @keyframes animate {
+
+            0% {
+                content: "Welcome";
+            }
+
+            50% {
+                content: "Swagatam";
+            }
+
+            75% {
+                content: "Namaste";
+            }
+        }
+
+        .add-to-cart {
+            background: purple;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .add-to-cart:hover {
+            background: rgb(64, 2, 64);
+        }
+        
+        .buy-now {
+            background: purple;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .buy-now:hover {
+            background: rgb(64, 2, 64);
+        }
+       
+        footer {
+            background-color: transparent;
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+        
+           
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        footer .footer-links a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        footer .footer-links a:hover {
+            color: skyblue;
+        }
+
+        footer .footer-text {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            let userEmail = sessionStorage.getItem("userEmail");
+            let userId = sessionStorage.getItem("userId");
+
+            console.log("Retrieved userId:", userId);
+        log
+            
+
+            $(".add-to-cart").click(function () {
+                let productId = $(this).data("id");
+                let productPrice = $(this).data("price");
+
+                if (!userId) {
+                    alert("User ID missing, please log in again.");
+                    window.location.href = "login.html";
+                    return;
+                }
+            
+                $.ajax({
+                    url: `https://localhost:7183/api/Users/addToCart?userId=${userId}&productId=${productId}`,
+                    type: "POST",
+                    success: function () {
+                        alert("Product added to cart successfully!");
+                        $(this).prop('disabled', true).text('Added to Cart');   
+                    },
+                    error: function (xhr) {
+                        alert("Failed to add Product to cart.");
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<!-- HTML -->
+    <div class="navbar">
+        <div class="logo"><span style="color: skyblue;">Shop</span><span style="color: purple;">Bazaar</span></div>
+        <div>
+            <a href="home.html">Home</a>
+            <a href="product.html">Product</a>
+            <a href="offer.html">Giftcard</a>
+            <a href="cart.html">Cart</a>
+            <!-- <a href="myorder.html">Orders</a> -->
+            <a href="login.html" >Logout  <i style="font-size:15px" class="fa">&#xf08b;</i></a>
+          
+        </div>
+    </div>
+
+    
+
+    <div class="banner">
+    
+        <h1><span id="ayush"></span> to ShopBazaar</h1>
+        <p>Your ultimate shopping destination for the best deals!</p><br>
+        <a href="product.html" class="shop-now">Shop Now</a><br><br><br>
+    </div>
+
+    <div class="features">
+        <div class="feature-box">
+            <i class="fa fa-truck"></i>
+            <h3><a href="delivery.html" style="text-decoration: none; color: black;">Fast Delivery</a></h3>
+            <p>Enter Pincode and Get Estimated Delivery Time.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fa fa-credit-card"></i>
+            <h3>Secure Payments</h3>
+            <p>100% safe transactions with multiple payment options.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fa fa-headset"></i>
+            <h3>24/7 Support</h3>
+            <p>Our team is here to assist you anytime.</p>
+        </div>
+    </div>
+
+    <h1 style="margin-top: 10px;"><span style="color: skyblue;">Best Selling</span> On ShopBazaar</h1>
+    
+    <div class="best-sellers">
+        <div class="best-seller-item">
+            <img src="img1.jpg" alt="Best Seller 1">
+            <span class="popular-tag">Popular</span> 
+            <h4>HP Laptop i5</h4>
+            <p>Electronics</p>
+            <p class="price">₹83500</p>
+            <button class="add-to-cart" data-id="13" data-price="${product.dprice}">  <i style="font-size:15px" class="fa">&#xf217;</i></button>
+            <button class="buy-now" data-id="13" data-price="${product.dprice}" data-name="${product.name}" data-description="${product.description}" data-photo="${imageUrl}">BUY NOW</button>
+
+        </div>
+
+        <div class="best-seller-item">
+            <img src="img12.jpg" alt="Best Seller 2">
+            <span class="popular-tag"><i style='font-size:12px' class='fas'>&#xf0a1;</i> New Arrival </span> 
+            <h4>SG Cricket Kit</h4>
+            <p>Sport</p>
+            <p class="price">₹4500</p>
+            <button class="add-to-cart" data-id="24" data-price="${product.dprice}">  <i style="font-size:15px" class="fa">&#xf217;</i></button>
+            <button class="buy-now" data-id="24" data-price="${product.dprice}" data-name="${product.name}" data-description="${product.description}" data-photo="${imageUrl}">BUY NOW</button> 
+        </div>
+
+        <div class="best-seller-item">
+            <img src="img3.jpg" alt="Best Seller 3">
+            <span class="popular-tag" style="background-color: red;">Top Seller</span> 
+            <h4>Boat Smartwatch</h4>
+            <p>Electronics</p>
+            <p class="price">₹2399</p>
+            <button class="add-to-cart" data-id="15" data-price="${product.dprice}">  <i style="font-size:15px" class="fa">&#xf217;</i></button>
+            <button class="buy-now" data-id="15" data-price="${product.dprice}" data-name="${product.name}" data-description="${product.description}" data-photo="${imageUrl}">BUY NOW</button>
+        </div>
+
+        <div class="best-seller-item">
+            <img src="img4.jpg" alt="Best Seller 4">
+            <span class="popular-tag">Customer's Choice</span> 
+            <h4>Weyfer Sunglass</h4>
+            <p>Fashion</p>
+            <p class="price">₹840</p>
+            <button class="add-to-cart" data-id="16" data-price="${product.dprice}">  <i style="font-size:15px" class="fa">&#xf217;</i></button>
+            <button class="buy-now" data-id="16" data-price="${product.dprice}" data-name="${product.name}" data-description="${product.description}" data-photo="${imageUrl}">BUY NOW</button> 
+        </div>
+    </div>
+
+  
+    <footer>
+        <div class="footer-links">
+            <a href="aboutus.html">About Us</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="FAQs.html">FAQs</a>
+            <a href="Reviews.html">Reviews</a>
+        </div>
+        <div class="footer-text">
+            <p>&copy; 2025 ShopBazaar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

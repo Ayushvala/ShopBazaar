@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopBazaar - Special Offers & Gift Cards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-512.png">
+
+    <!-- CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: center;
+            background-image: url(https://www.katebackdrop.co.uk/cdn/shop/files/1000x600_banner.gif?v=1731392753&width=3000);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 135%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .navbar {
+            background-color: transparent;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            margin: 5px;
+        }
+
+        .navbar a:hover {
+            color: skyblue;
+            opacity: 100px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: skyblue;
+        }
+
+        .section {
+            padding: 40px 0;
+            margin: 40px 0;
+            background-color: transparent;
+        }
+
+        .section h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: skyblue;
+        }
+
+        .section1 {
+            padding: 40px 0;
+            margin: 40px 0;
+            background-color: transparent;
+        }
+
+        .section1 h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: skyblue;
+            margin-top: 40px;
+        }
+
+        .offer-card {
+            background-color: white;
+            color: black;
+            width: 1100px;
+            padding: 20px;
+            margin-left: 370px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .gift-card {
+            background-color: white;
+            color: black;
+            width: 700px;
+            padding: 20px;
+            margin-left: 590px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .offer-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .gift-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .offer-card p,
+        .gift-card p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .offer-card button,
+        .gift-card button {
+            background-color: purple;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .offer-card button:hover,
+        .gift-card button:hover {
+            background-color: #70076b;
+        }
+
+        .gift-card-form {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gift-card-form input,
+        .gift-card-form select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .gift-card-form button {
+            background-color: purple;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            margin-left: 115px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .gift-card-form button:hover {
+            background-color: #5f1278;
+        }
+
+        .shop-now {
+            background: purple;
+            color: white;
+            padding: 8px 23px;
+            border-radius: 30px;
+            font-weight: 450;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .shop-now:hover {
+            background: #70076b;
+        }
+
+        footer {
+            background-color: transparent;
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        footer .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        footer .footer-links a:hover {
+            color: skyblue;
+        }
+
+        footer .footer-text {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .product-recommendations {
+            background-color: white;
+            color: black;
+            width: 100%;
+            padding: 30px;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .product-card h4 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .product-card button {
+            background-color: purple;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .product-card button:hover {
+            background-color: #70076b;
+        }
+
+        .discount-timer {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: skyblue;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo">Shop<span style="color: purple;">Bazaar</span></div>
+        <div>
+            <a href="home.html">Home</a>
+            <a href="product.html">Product</a>
+            <a href="offer.html">Giftcard</a>
+            <a href="cart.html">Cart</a>
+            <!-- <a href="myorder.html">Orders</a> -->
+            <a href="login.html" class="logout-btn">Logout <i style="font-size:15px" class="fa">&#xf08b;</i></a>
+        </div>
+    </div>
+
+    <div class="section1">
+        <h2>Buy a Gift Card</h2>
+
+        <div class="gift-card">
+            <h3>Gift Card Options</h3>
+            <p>Choose the amount you want to gift to your loved ones!</p>
+
+            <form class="gift-card-form" action="" method="POST" id="gift-card-form">
+                <select id="gift-card-amount" name="gift-card-amount">
+                    <option value="500">₹500</option>
+                    <option value="1000">₹1000</option>
+                    <option value="2000">₹2000</option>
+                    <option value="5000">₹5000</option>
+                </select>
+
+                <input type="text" id="gift-card-recipient" name="recipient" placeholder="Enter Recipient Name" required>
+                <input type="email" id="gift-card-email" name="email" placeholder="Enter Recipient Email" required>
+             
+
+                <button type="submit" id="buy-gift-card">Buy Gift Card</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Special Offers</h2>
+
+        <div class="offer-card">
+            <h3>Get 50% Off on Electronics!</h3>
+            <p>Limited-time offer on select electronics. Hurry up!</p>
+            <div class="discount-timer" id="countdown"></div>
+            <a href="product.html" class="shop-now">Shop Now</a>
+        </div>
+
+        <div class="offer-card">
+            <h3>Buy 1 Get 1 Free on Fashion!</h3>
+            <p>Buy any 1 fashion item and get another one free. Don't miss out!</p>
+            <a href="product.html" class="shop-now">Shop Now</a>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="aboutus.html">About Us</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="FAQs.html">FAQs</a>
+            <a href="Reviews.html">Reviews</a>
+        </div>
+        <div class="footer-text">
+            <p>&copy; 2025 ShopBazaar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("gift-card-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const amount = document.getElementById("gift-card-amount").value;
+            const recipient = document.getElementById("gift-card-recipient").value;
+            const email = document.getElementById("gift-card-email").value;
+            const message = document.getElementById("gift-card-message").value;
+
+            const giftCard = {
+                Amount: amount,
+                RecipientName: recipient,
+                RecipientEmail: email,
+                Message: message
+            };
+
+            fetch('https://localhost:7183/api/Users/Giftcard', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(giftCard)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(`Gift card of ₹${amount} has been sent to ${recipient} at ${email}.`);
+                        document.getElementById("gift-card-form").reset();
+                    } else {
+                        alert('Gift card has been sent to User.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error occurred while processing the gift card.');
+                });
+        });
+
+     
+        var countdownDate = new Date();
+        countdownDate.setMinutes(countdownDate.getMinutes() + 30);
+
+        var countdown = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countdownDate - now;
+            
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+
+</body>
+
+</html>

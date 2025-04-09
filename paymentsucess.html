@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success and Invoice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .success-message {
+            background-color: transparent;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .home-btn {
+            background-color: green;
+            color: white;
+            padding: 14px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .home-btn:hover {
+            background-color: #044105;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .home-btn:active {
+            transform: scale(1);
+        }
+
+        .home-btn1 {
+            background-color: green;
+            color: white;
+            padding: 14px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .home-btn1:hover {
+            background-color: #044105;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .home-btn1:active {
+            transform: scale(1);
+        }
+
+        .checkmark-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: green;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .scratch-card {
+            width: 50%;
+            max-width: 300px;
+            height: 200px;
+            position: relative;
+            margin-top: 30px;
+            background-image: url('https://cdn0.desidime.com/attachments/photos/1086231/medium/Screenshot2024-07-07-11-35-22-6849b96b5fbae0d12a18edc4a3afe0dfd9.jpg?1720332435');
+            background-size: cover;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .scratch-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: grey;
+            z-index: 1;
+            pointer-events: auto;
+        }
+
+        .scratch-card .scratch-overlay {
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        .scratch-card.scratch {
+            pointer-events: none;
+        }
+
+        .scratch-card.scratch .coupon-code {
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .success-message {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .home-btn {
+                font-size: 16px;
+                padding: 12px 25px;
+            }
+        }
+
+        #card12 {
+            margin-top: 50px;
+            font-family: cursive;
+            color: black;
+        }
+
+        #invoice-section {
+            display: none;
+            margin-top: 50px;
+            width: 80%; /* Increased width */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="success-message">
+        <div class="checkmark-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1>Payment Successful!</h1>
+        <p>Your order has been placed successfully. A confirmation email will be sent shortly.</p>
+        <a href="home.html" class="home-btn">Go to Home</a>
+        <A href="#" class="home-btn1" id="see-invoice-btn">See Invoice</A>
+    </div>
+
+    <h2 id="card12">You have Earn scratch Card Coupon...</h2>
+
+    <div class="scratch-card" id="scratchCard">
+        <div class="scratch-overlay" id="scratchOverlay"></div>
+        <div class="coupon-code" id="couponCode"> </div>
+    </div>
+
+    <div id="invoice-section">
+        <div style="max-width: 800px; margin: 20px auto; padding: 30px; border: 1px solid #ccc; background-color: #fff; font-family: Arial, sans-serif;">
+            <h2 style="text-align: center; color: purple;">ShopBazaar</h2>
+            <p><strong>Date:</strong> <span id="invoice-date"></span></p>
+            <p><strong>Customer Name:</strong> <span id="customer-name"></span><br>
+            <hr>
+            <div>
+                <h4 style="text-align: center; margin-top: 10px;">Shopping Invoice</h4>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                    <thead>
+                        <tr style="background-color: #f9f9f9;">
+                            <th style="padding: 10px; border: 1px solid #ddd;">Product Name</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                        <!-- Cart Items Will be Inserted Here -->
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+            <div style="text-align: right; margin-top: 20px;">
+                <p><strong>Total: </strong><span id="total-price">₹0.00</span></p>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button style="background-color: purple; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" onclick="window.print()">Print Bill</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const scratchCard = document.getElementById('scratchCard');
+        const scratchOverlay = document.getElementById('scratchOverlay');
+        const couponCode = document.getElementById('couponCode');
+
+        let isScratching = false;
+
+        scratchCard.addEventListener('mousedown', startScratching);
+        scratchCard.addEventListener('mousemove', scratchMove);
+        scratchCard.addEventListener('mouseup', stopScratching);
+        scratchCard.addEventListener('mouseleave', stopScratching);
+
+        scratchCard.addEventListener('touchstart', startScratching);
+        scratchCard.addEventListener('touchmove', scratchMove);
+        scratchCard.addEventListener('touchend', stopScratching);
+        scratchCard.addEventListener('touchcancel', stopScratching);
+
+        function startScratching(e) {
+            isScratching = true;
+            scratchCard.classList.add('scratch');
+        }
+
+        function scratchMove(e) {
+            if (isScratching) {
+                let event = e.type.includes("touch") ? e.touches[0] : e;
+                let offset = scratchCard.getBoundingClientRect();
+                let x = event.clientX - offset.left;
+                let y = event.clientY - offset.top;
+
+                if (x >= 0 && x <= scratchCard.offsetWidth && y >= 0 && y <= scratchCard.offsetHeight) {
+                    scratchOverlay.style.clipPath = `circle(30px at ${x}px ${y}px)`;
+                }
+            }
+        }
+
+        function stopScratching() {
+            isScratching = false;
+            if (scratchOverlay.style.clipPath === "") {
+                scratchOverlay.style.clipPath = "none";
+            }
+            couponCode.style.display = "block";
+        }
+
+        $(document).ready(function () {
+            let finalPrice = parseFloat(sessionStorage.getItem("finalPrice"));
+            let cartDetails = JSON.parse(sessionStorage.getItem("cartDetails"));
+
+            $("#see-invoice-btn").click(function () {
+                if (finalPrice && cartDetails && cartDetails.length > 0) {
+                    let cartHtml = "";
+                    cartDetails.forEach(item => {
+                        cartHtml += `
+                            <tr>
+                                <td>${item.name}</td>
+                                <td>₹${item.price.toFixed(2)}</td>
+                            </tr>
+                        `;
+                    });
+
+                    $("#cart-items").html(cartHtml);
+                    $("#total-price").text("₹" + finalPrice.toFixed(2));
+                    $("#invoice-date").text(new Date().toLocaleDateString());
+                    $("#customer-name").text(sessionStorage.getItem('userEmail'));
+
+                    $("#invoice-section").show();
+
+                    // Hide the scratch card
+                    $("#scratchCard").hide();
+                } else {
+                    alert("No items in the cart.");
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

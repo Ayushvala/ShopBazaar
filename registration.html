@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ShopBazaar - Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-512.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- CSS -->
+    <style>
+           body {
+            font-family: 'Poppins', sans-serif;
+            /* background-image: url(https://www.solutionnexxt.com/wp-content/uploads/2022/08/ECOMMERCE-WEB-DEVELOPMENT-SERVICES-in-Deoghar.png);  */
+            background-repeat: no-repeat;
+        background-position: center;
+            background-color: white;
+          background-size: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+
+        .container {
+           
+            width: 360px;
+            height: 450px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+           
+        }
+
+        h2 {
+            color: purple;
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fafafa;
+            color: #333;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+
+        input:focus {
+            border-color: purple;
+            outline: none;
+            box-shadow: 0 0 5px rgba(92, 107, 192, 0.5);
+        }
+
+        .btn {
+            background-color: purple;
+            color: white;
+            padding: 14px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px; 
+        }
+
+        .btn:hover {
+            background-color: #460958;
+        }
+
+        .login-link {
+            margin-top: 20px;
+            color: #5C6BC0;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .login-link:hover {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        .footer-text {
+            margin-top: 20px;
+            font-size: 14px;
+            color: black;
+            font-family: 'Arial', sans-serif;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+
+        
+    </style>
+
+    <!-- JS -->
+    <script>
+        $(document).ready(function () {
+
+            $('input').on('keypress', function (e) {
+                if (e.which === 13) { 
+                    $(".btn").click(); 
+                }
+            });
+
+            $(".btn").click(function () {
+                let name = $("#name").val().trim();
+                let email = $("#email").val().trim();
+                let password = $("#password").val().trim();
+                let confirmPassword = $("#confirmPassword").val().trim();
+
+            
+                if (name === "") {
+                    alert("Please enter your name.");
+                    return;
+                }
+
+              
+                if (email === "") {
+                    alert("Please enter your email.");
+                    return;
+                } else if (!validateEmail(email)) {
+                    alert("Please enter a valid email.");
+                    return;
+                }
+
+              
+                if (password === "") {
+                    alert("Please enter your password.");
+                    return;
+                } else if (password.length < 6) {
+                    alert("Password must be at least 6 characters.");
+                    return;
+                }
+
+            
+                if (confirmPassword !== password) {
+                    alert("Passwords do not match.");
+                    return;
+                }
+
+              
+                $.ajax({
+                    url: "https://localhost:7183/api/Users/register", 
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        name: name,
+                        email: email,
+                        password: password
+                    }),
+                    success: function (response) {
+                        alert(response.message); 
+                        window.location.href = "login.html"; 
+                    },
+                    error: function (xhr) {
+                        let errorMessage = xhr.responseJSON ? xhr.responseJSON.message : "Registration failed!";
+                        alert(errorMessage);
+                    }
+                });
+            });
+        });
+
+   
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</head>
+
+<!-- HTML -->
+
+<body>
+    <div class="container">
+        <h2>Registration</h2>
+        <input type="text" id="name" placeholder="Enter Name" required>
+        <input type="email" id="email" placeholder="Enter Email" required>
+        <input type="password" id="password" placeholder="Enter Password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <button class="btn">Register</button>
+        <a href="login.html" class="login-link">Already have an account? Login here</a>
+    </div>
+</body>
+</html>
