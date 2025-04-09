@@ -1,0 +1,163 @@
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\appsettings.json
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\gamingstore.staticwebassets.endpoints.json
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\gamingstore.exe
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\gamingstore.deps.json
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\gamingstore.runtimeconfig.json
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\gamingstore.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\gamingstore.pdb
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\cs\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\pl\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\tr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\gamingstore.csproj.AssemblyReference.cache
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\gamingstore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\gamingstore.AssemblyInfoInputs.cache
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\gamingstore.AssemblyInfo.cs
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\gamingstore.csproj.CoreCompileInputs.cache
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\gamingstore.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\gamingstore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\scopedcss\bundle\gamingstore.styles.css
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\staticwebassets\msbuild.gamingstore.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\staticwebassets\msbuild.gamingstore.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\staticwebassets\msbuild.build.gamingstore.props
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.gamingstore.props
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.gamingstore.props
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\gamingst.CBD7E5E7.Up2Date
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\gamingstore.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\refint\gamingstore.dll
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\gamingstore.pdb
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\gamingstore.genruntimeconfig.cache
+C:\Users\pcit100\source\repos\gamingstore\gamingstore\obj\Debug\net8.0\ref\gamingstore.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\appsettings.json
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\gamingstore.staticwebassets.endpoints.json
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\gamingstore.exe
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\gamingstore.deps.json
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\gamingstore.runtimeconfig.json
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\gamingstore.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\gamingstore.pdb
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\cs\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\pl\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\tr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\gamingstore.csproj.AssemblyReference.cache
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\gamingstore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\gamingstore.AssemblyInfoInputs.cache
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\gamingstore.AssemblyInfo.cs
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\gamingstore.csproj.CoreCompileInputs.cache
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\gamingstore.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\gamingstore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\scopedcss\bundle\gamingstore.styles.css
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\staticwebassets\msbuild.gamingstore.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\staticwebassets\msbuild.gamingstore.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\staticwebassets\msbuild.build.gamingstore.props
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.gamingstore.props
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.gamingstore.props
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\gamingst.CBD7E5E7.Up2Date
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\gamingstore.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\refint\gamingstore.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\gamingstore.pdb
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\gamingstore.genruntimeconfig.cache
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\ref\gamingstore.dll
+C:\Users\pcit107\Documents\BigAnt\My Received Files\gamingstore\obj\Debug\net8.0\gamingstore.sourcelink.json

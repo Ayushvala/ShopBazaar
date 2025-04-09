@@ -1,0 +1,80 @@
+{
+  "format": 1,
+  "restore": {
+    "\\\\pcit18\\Trainee_Batch_2025\\.NET TASK SUBMISSION\\Ayush Vala\\Back-End\\gamingstore\\Onlinecom.csproj": {}
+  },
+  "projects": {
+    "\\\\pcit18\\Trainee_Batch_2025\\.NET TASK SUBMISSION\\Ayush Vala\\Back-End\\gamingstore\\Onlinecom.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "\\\\pcit18\\Trainee_Batch_2025\\.NET TASK SUBMISSION\\Ayush Vala\\Back-End\\gamingstore\\Onlinecom.csproj",
+        "projectName": "Onlinecom",
+        "projectPath": "\\\\pcit18\\Trainee_Batch_2025\\.NET TASK SUBMISSION\\Ayush Vala\\Back-End\\gamingstore\\Onlinecom.csproj",
+        "packagesPath": "C:\\Users\\pcit61\\.nuget\\packages\\",
+        "outputPath": "\\\\pcit18\\Trainee_Batch_2025\\.NET TASK SUBMISSION\\Ayush Vala\\Back-End\\gamingstore\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\Offline Packages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\pcit61\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 18.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net80": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net80": {
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "PDFsharp": {
+              "target": "Package",
+              "version": "[6.1.1, )"
+            },
+            "Polybioz.HtmlRenderer.PdfSharp.Core": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            },
+            "itext7.pdfhtml": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
